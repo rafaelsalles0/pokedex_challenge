@@ -1,0 +1,193 @@
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("../static/backgroundPokedex.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Container principal para centralizar o conteúdo */
+.main-container {
+    max-width: 1359px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Formulário de Filtros */
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-form input, 
+.filter-form select, 
+.filter-form button {
+    flex: 1 1 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: 5px;
+    max-width: 300px;
+    min-width: 100px;
+}
+
+.filter-form button {
+    background-color: rgba(0, 30, 60, 0.8); /* Fundo azul escuro */
+    color: white;
+    cursor: pointer;
+    border: 2px solid rgba(0, 255, 255, 0.6); /* Borda neon azul */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-form button:hover {
+    background-color: rgba(0, 60, 90, 0.9);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 1);
+}
+
+/* Estilo dos Cards */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 180px;
+    padding: 15px;
+    background-color: rgba(0, 30, 60, 0.8); /* Azul escuro semitransparente */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8); /* Efeito neon */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: white;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1); /* Efeito neon mais forte */
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h2 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+/* Estilo da Paginação */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pagination .btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: rgba(0, 30, 60, 0.8); /* Fundo azul escuro */
+    color: white;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 255, 255, 0.6); /* Borda neon */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pagination .btn:hover {
+    background-color: rgba(0, 60, 90, 0.9);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 1);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .filter-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-form input, 
+    .filter-form select, 
+    .filter-form button {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+
+
+/*
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.filter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 180px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+}
+
+*/

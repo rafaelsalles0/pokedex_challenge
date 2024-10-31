@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <h1>Pokedex</h1>
+
+        <!-- Enviando o formulário com método GET -->
+        <form method="GET" class="filter-form">
+            <input type="text" name="name" placeholder="Nome do Pokémon" value="{{ request.args.get('name', '') }}">
+
+            <!-- Select de Tipo preenchido dinamicamente -->
+            <select name="type">
+                <option value="">Selecione o Tipo</option>
+                {% for type in types %}
+                    <option value="{{ type }}" {% if request.args.get('type') == type %}selected{% endif %}>
+                        {{ type.capitalize() }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <!-- Select de Habitat preenchido dinamicamente -->
+            <select name="habitat">
+                <option value="">Selecione o Habitat</option>
+                {% for habitat in habitats %}
+                    <option value="{{ habitat }}" {% if request.args.get('habitat') == habitat %}selected{% endif %}>
+                        {{ habitat.capitalize() }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <button type="submit" class="btn">Filtrar</button>
+        </form>
+
+        <div class="cards-container">
+            {% for pokemon in pokemons %}
+                <a href="{{ url_for('pokemon_detail', pokemon_id=pokemon['id']) }}" class="card">
+                    <img src="{{ pokemon['image'] }}" alt="{{ pokemon['name'] }}">
+                    <h2>{{ pokemon['name'].capitalize() }}</h2>
+                    <p><strong>Tipos:</strong> {{ ", ".join(pokemon['types']) }}</p>
+                    <p><strong>Habitat:</strong> {{ pokemon['habitat'].capitalize() }}</p>
+                </a>
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            {% if page > 1 %}
+                <a href="{{ url_for('index', page=page - 1, name=request.args.get('name'), type=request.args.get('type'), habitat=request.args.get('habitat')) }}" class="btn">Anterior</a>
+            {% endif %}
+            <a href="{{ url_for('index', page=page + 1, name=request.args.get('name'), type=request.args.get('type'), habitat=request.args.get('habitat')) }}" class="btn">Próximo</a>
+        </div>
+    </div>
+</body>
+</html>

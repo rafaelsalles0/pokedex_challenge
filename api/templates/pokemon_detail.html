@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pokemon['name'].capitalize() }} - Detalhes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_details.css') }}">
+</head>
+<body>
+    <div class="detail-container">
+        <h1>{{ pokemon['name'].capitalize() }}</h1>
+        <img src="{{ pokemon['image'] }}" alt="{{ pokemon['name'] }}">
+        <p><strong>Altura:</strong> {{ pokemon['height'] }} m</p>
+        <p><strong>Peso:</strong> {{ pokemon['weight'] }} kg</p>
+        <p><strong>Tipos:</strong> {{ ", ".join(pokemon['types']) }}</p>
+        <p><strong>Habitat:</strong> {{ pokemon['habitat'].capitalize() }}</p>
+        <a href="{{ url_for('index') }}" class="btn">Voltar</a>
+    </div>
+</body>
+
+</html>
